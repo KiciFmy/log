@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script>
+		window.onload=function()
+		{
+			var oTab=document.getElementById('tab1');
+			var oBtn=document.getElementById('btn');
+			var oName=document.getElementById('name');
+			var oAge=document.getElementById('age');
+
+			oBtn.onclick=function()
+			{
+				var oTr=document.createElement('tr');
+				
+				var oTd=document.createElement('td');
+				oTd.innerHTML=oTab.tBodies[0].rows.length+1;
+				oTr.appendChild(oTd);
+
+				var oTd=document.createElement('td');
+				oTd.innerHTML=oName.value;
+				oTr.appendChild(oTd);
+
+				var oTd=document.createElement('td');
+				oTd.innerHTML=oAge.value;
+				oTr.appendChild(oTd);
+
+				oTab.tBodies[0].appendChild(oTr);
+			}
+		}
+	</script>
+</head>
+<body>
+	姓名：<input id="name" type="text"/>
+年龄：<input id="age" type="text"/>
+<input id="btn" type="button" value="添加" />
+	<table id="tab1" border="1" width="500">
+		<thead>
+			<td>ID</td>
+			<td>姓名</td>
+			<td>年龄</td>
+		</thead>
+		<tbody>
+			<tr>
+				<td>1</td>
+				<td>Blue</td>
+				<td>44</td>
+			</tr>
+			<tr>
+				<td>2</td>
+				<td>ff</td>
+				<td>24</td>
+			</tr>
+			<tr>
+				<td>3</td>
+				<td>qq</td>
+				<td>53</td>
+			</tr>
+			<tr>
+				<td>4</td>
+				<td>ii</td>
+				<td>11</td>
+			</tr>
+		</tbody>
+	</table>
+</body>
+</html>

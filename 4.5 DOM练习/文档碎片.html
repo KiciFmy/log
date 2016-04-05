@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script>
+		window.onload=function()
+		{
+			var oUl=document.getElementById('ul1');
+			var oFrag=document.createDocumentFrament();
+
+			for(var i=0;i<10000;i++)
+			{
+				var oLi=document.creatElement('li');
+
+				oFrag.appendChild(oLi);
+			}
+			oUl.appendChild(oFrag);
+		}
+	</script>
+</head>
+<body>
+	<ul id="ul1"></ul>
+</body>
+</html>

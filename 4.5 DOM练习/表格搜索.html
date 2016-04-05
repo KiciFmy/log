@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script>
+		window.onload=function()
+		{
+			var oTab=document.getElementById('tab1');
+			var oBtn=document.getElementById('btn');
+			var oName=document.getElementById('name');
+			
+			oBtn.onclick=function()
+			{
+
+				for(var i=0;i<oTab.tBodies[0].rows.length;i++)
+				{
+					var sTab=oTab.tBodies[0].rows[i].cells[1].innerHTML.toLowerCase();
+					var sTxt=oName.value.toLowerCase();
+
+					var arr=sTxt.split(' ');
+
+					oTab.tBodies[0].rows[i].style.background=' ';
+
+					for(var i=0;i<arr.length;i++)
+					{
+						if(sTab.search(arr[i])!=-1)
+						{
+							oTab.tBodies[0].rows[i].style.background='yellow';
+						}
+					}
+				}
+			}
+		}
+	</script>
+</head>
+<body>
+	姓名：<input id="name" type="text"/>
+
+	<input id="btn" type="button" value="搜索" />
+
+	<table id="tab1" border="1" width="500">
+		<thead>
+			<td>ID</td>
+			<td>姓名</td>
+			<td>年龄</td>
+			<td>删除</td>
+		</thead>
+		<tbody>
+			<tr>
+				<td>1</td>
+				<td>Blue</td>
+				<td>44</td>
+				<td></td>
+			</tr>
+			<tr>
+				<td>2</td>
+				<td>ff</td>
+				<td>24</td>
+				<td></td>
+			</tr>
+			<tr>
+				<td>3</td>
+				<td>qq</td>
+				<td>53</td>
+				<td></td>
+			</tr>
+			<tr>
+				<td>4</td>
+				<td>ii</td>
+				<td>11</td>
+				<td></td>
+			</tr>
+		</tbody>
+	</table>
+</body>
+</html>
