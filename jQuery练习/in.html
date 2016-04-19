@@ -1,0 +1,109 @@
+<html xmlns="http://www.w3.org/1999/xhtml" charset=UTF-8> 
+<head runat="server"> 
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title></title> 
+
+<style>
+  div {
+      width: 200px;
+      height: 100px;
+      background: pink;
+      margin: 100px auto;
+
+  }
+</style>
+
+<script type="text/javascript" src="jquery.js" ></script>
+
+<script>
+
+  window.onload = function(){
+
+      /*<!-- For...in声明对数组或者对象的属性进行迭代操作 -->
+
+      <!--对于数组，迭代出来的是数组元素-->
+
+      var x;
+      var mycars = new Array();
+      mycars[0] = "Saab";
+      mycars[1] = "Volvo";
+      mycars[2] = "BNM";
+
+      for(x in mycars)
+      {
+        document.write(mycars[x]+"<br />");
+      }
+
+      <!--对于对象迭代出来的是对象属性-->
+
+      var obj = {
+          w:"wen",
+          j:"jian",
+          b:"bao"
+      }
+ 
+      for(var v in obj) {
+          document.write(v+"<br />");
+      }
+
+      alert(obj.w);*/
+      
+      
+
+      <!--模拟copy联系人-->
+
+      var userchecked = $("input[type='checkbox']")[0];
+          
+      userchecked.checked && copy();
+      
+      $(".old").on("change", "input", function() {
+            if (userchecked.checked) {
+                copy();
+            } else {
+                clear();
+            }
+      });
+
+      function copy() {
+            var olds = $(".old [name]");
+            var news = $(".new [name]");
+
+            var obj = {};
+
+            olds.each(function(i,n){
+                obj[n.name] = n.value;
+            });
+
+            news.each(function(i,n){
+                if(n.name in obj){
+                  n.value = obj[n.name];
+                }
+            });
+      }
+
+      function clear() {
+            var news = $(".new [name]");
+            news.each(function(i,n){
+                n.value = "";
+            });
+      }
+  }
+</script>
+	
+
+</head> 
+<body> 
+
+      <div class="old" >
+            first-name<input name="first" type="text" />
+            last-name<input name="last" type="text" />
+            <input type="checkbox" checked="checked" >copy联系人
+      </div>
+
+      <div class="new" >
+            first-name<input name="first" type="text" />
+            last-name<input name="last" type="text" />
+      </div>
+
+</body> 
+</html> 

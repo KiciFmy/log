@@ -1,0 +1,55 @@
+<html xmlns="http://www.w3.org/1999/xhtml" charset=UTF-8> 
+<head runat="server"> 
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title></title> 
+<style type="text/css">
+    
+    
+</style> 
+<script type="text/javascript" src="jquery.js" ></script>
+<script>
+    window.onload = function() {
+       
+       	/*当元素的值发生改变的时候，会发生change事件，
+            仅适用于文本域 textField textarea select元素
+            当用于select时，在选择某个选项时发生
+            在text field textarea checkbox时，事件会在失去焦点时发生。
+
+            input不可以
+            */
+
+
+        
+
+       var input = $("input[type='text']");
+       var select = $("select");
+
+
+       select.on("change",function(){
+            var s = $(this).val();
+            input.attr({value:s});
+       });
+
+        
+    }
+</script>
+	
+
+</head> 
+<body> 
+
+<select>
+    <option value="a">a</option>
+    <option value="b">b</option>
+    <option value="c">c</option>
+</select>
+
+<input type="text"/>
+
+
+
+
+
+
+</body> 
+</html> 

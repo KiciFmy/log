@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){
+	$(".myClass");
+
+	$("#foo\\[bar\\]")
+
+	$(".notMe,div.myClass");
+
+	$("body div")
+
+	$("div:has(p)")<!--返回含有p元素的div元素-->
+	$("div:parent")<!--返回含有子元素的div-->
+
+	$("p").on("click",function(){
+		alert($(this).text());
+	});
+
+	function myHandler(event){
+		alert(event.data.f);
+	}
+	$("p").on("click",{foo:"bar",f:"b"},myHandler);
+	$("form").off("click","p");
+	$("form").on("click")
+});
+
+</script>
+</head>
+
+<body>
+	<form>
+		<div class="a b">div class="notMe"<p>我是p标签</p></div>
+		<div class="a">div class="myClass"</div>
+		<span class="myClass">span class="myClass"</span>
+
+		<span id="foo:bar"></span>
+		<span id="foo[bar]"></span>
+		<span id="foo.bar"></span>
+
+		<input type="button" value="hello">
+		<input type="checkbox" checked="checked">
+
+		<p>dsfa</p>	
+	</form>
+
+</body>
+
+</html>

@@ -1,0 +1,103 @@
+<html xmlns="http://www.w3.org/1999/xhtml" charset=UTF-8> 
+<head runat="server"> 
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title></title> 
+<style type="text/css">
+    
+    
+</style> 
+<script type="text/javascript" src="jquery.js" ></script>
+<script>
+    window.onload = function() {
+       
+    <!--通用遍历方法，可用来遍历对象和数组-->
+
+	    $.each([0,1,2],function(i,n){
+	    	alert("item #"+i+":"+n);
+	    });
+
+      $("img").each(function(i){
+        this.src = "text"+i+".jpg";
+      });
+
+
+	 <!--遍历对象-->
+
+	 	$.each({name:"john",lang:"JS"},function(i,n){
+	 		 alert("Name:"+i+",Value:"+n);
+	 	});
+
+	 <!--去掉字符串起始和结尾的空格-->
+
+	 	var a = $.trim("  hello, how are you ? ");
+	        
+  		alert(a);
+
+  		<!--用一个或多个其他对象来拓展一个对象，返回被拓展的对象-->
+
+  		var settings = {validate:false,limit:5,name:"foo"};
+  		var options = {validate:true,name:"bar"};
+  		$.extend(settings,options);
+
+  		<!--取得一个包含匹配元素集合中每一个元素的所有同辈元素集合-->
+
+  		$("div").siblings(".selected");
+
+  		<!--筛选出与指定表达式匹配的元素的集合-->
+
+  		$("p").filter(".selected");
+
+  		<!--根据选择器、DOM元素、或jQuery对象来检测匹配元素集合-->
+
+  	/*	$("input[type="checkbox"]").parent().is(".a")*/
+
+  		$("li").click(function(){
+  			var $li = $(this),
+  				isWidthTwo = $li.is(function(){
+  					return $('strong',this).length == 2;
+  				});
+  			if(isWidthTwo){
+  				$li.css("background-color","green");
+  			}else{
+  				$li.css("background-color","red");
+  			}
+  		});
+
+
+    }
+</script>
+	
+
+</head> 
+<body> 
+
+<p class="selected" >
+	hello
+</p>
+
+<div>
+	<span>
+		Hello Again
+	</span>
+</div>
+<p>
+	And Again
+</p>
+<p>
+	more Again
+</p>
+<form class="a d">
+	<input type="checkbox" checked="checked"/>
+  <input type="checkbox" checked="checked" />
+  <input type="checkbox" />
+  <input type="checkbox" />
+</form>
+<ul>
+	<li><strong>list</strong>item 1 - one strong tag</li>
+	<li><strong>list</strong>item <strong>2</strong>- two <span>strong tags</span></li>
+	<li>list item 3</li>
+</ul>
+<img/>
+<img/>
+</body> 
+</html> 

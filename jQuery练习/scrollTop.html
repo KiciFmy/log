@@ -1,0 +1,58 @@
+<html xmlns="http://www.w3.org/1999/xhtml" charset=UTF-8> 
+<head runat="server"> 
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title></title> 
+<style type="text/css">
+    .app {
+        width:151px;
+        height:210px;
+        position:fixed;
+        left:242px;
+        top:100px;
+        z-index:2;
+        display: none;
+        background: red;
+    }
+    .content {
+        width: 900px;
+        height: 9000px;
+        background: pink;
+
+    }
+</style> 
+<script type="text/javascript" src="jquery.js" ></script>
+<script>
+    window.onload = function(){
+
+        <!--当用户滚动指定的元素时，会发生 scroll 事件-->
+
+        $(window).bind("scroll", function() {
+            var sTop = $(window).scrollTop();
+            var sTop = parseInt(sTop);
+            var app = $(".app");
+            if (sTop >= 150) {
+                app.show(1000);
+            } else {
+                app.hide(1000);
+            }
+        });
+    }
+</script>
+	
+
+</head> 
+<body> 
+
+<div class="content">
+    
+</div>
+<div class="app">
+    
+</div>
+
+
+
+
+
+</body> 
+</html> 

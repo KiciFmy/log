@@ -1,0 +1,39 @@
+<html xmlns="http://www.w3.org/1999/xhtml" charset=UTF-8> 
+<head runat="server"> 
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title></title> 
+<style type="text/css">
+    
+    
+</style> 
+<script type="text/javascript" src="jquery.js" ></script>
+<script>
+    window.onload = function() {
+       
+       	<!--在选择元素上绑定一个或多个事件的事件处理函数。-->
+
+        $("p").on("click",function() {
+            alert($(this).text());
+        });
+
+        function myHander(event) {
+        	alert(event.data.foo);
+        }
+
+        $("p").on("click",{foo:"bar"},myHander);
+        
+    }
+</script>
+	
+
+</head> 
+<body> 
+
+<p>hello</p>
+
+
+
+
+
+</body> 
+</html> 

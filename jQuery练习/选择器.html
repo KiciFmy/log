@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+<script type="text/javascript" src="jquery.js" ></script>
+<script>
+	<!--查找ID为"noteMe"的元素-->
+	$('#noteMe');
+
+	<!--查找含有特殊字符的元素-->
+	$('#foo\\:bar');
+	$('#foo\\[bar\\]');
+	$('#foo\\.bar');
+
+	<!--查找一个DIV元素-->
+	$('div');
+
+	<!--查找所有类是myClass的元素-->
+	$('.myClass');
+
+	<!--找到每一个元素-->
+	$('*');
+
+	<!--将每个选择器匹配到的元素合并后一起返回-->
+	$('div,span,p.myClass');
+
+	<!--在给定祖先元素下匹配所有的后代元素-->
+	$('form input');
+
+	<!--在给定的父元素下匹配所有的子元素-->
+	$('form > input');
+
+	<!--匹配所有紧接在前面元素后的后面元素 兄弟和兄弟的孩子--> 
+	$('label + input');
+
+	<!--匹配第一个元素之后的所有第二个元素 兄弟-->
+	$('form ~ input');
+
+	<!--获取第一个元素-->
+	$('li:first');
+
+	<!--去除所有与给定选择器匹配的元素-->
+	$('input:not(:checked)');
+
+	<!--匹配所有索引值为偶数的元素，从0开始计数-->
+	$('tr:even');
+
+	<!--匹配所有索引值为计数的元素，从0开始计数-->
+	$('tr:odd');
+
+	<!--匹配一个给定索引值的元素-->
+	$('tr:eq(1)');
+
+	<!--获取最后一个元素-->
+	$('tr:last');
+
+	<!--匹配所有小于给定索引值的元素-->
+	$('tr:lt(2)');
+
+	<!--给页面所有标题加上颜色-->
+	$(':header').css("background","#EEE");
+
+	<!--匹配所有正在执行动画效果的元素-->
+	$('#run').click(function(){$('div:not(:animated)').animate({left:'+=20'},1000)});
+
+	<!--匹配所有包含给定文本的元素-->
+	$("div:contains('John')")
+
+	<!--返回所有不包含子元素或者文本的空元素-->
+	$('td:empty')
+
+	<!--匹配含有选择器匹配的元素的元素-->
+	$('div:has(p)').addClass("test")
+
+	<!--匹配含有子元素或者文本的元素-->
+	$('td:parent')
+
+	<!--匹配所有不可见元素，或者type为hidden的元素-->
+	$('tr:hidden')
+
+	<!--匹配所有可见元素-->
+	$('tr:visible')
+
+	<!--匹配包含给定属性的元素-->
+	$('div[id]')
+
+	<!--匹配给定的属性是某个特定值的元素-->
+	$('input[name="newsletter"]')
+
+	<!--匹配给定的属性不是某个值的元素-->
+	$('input[name!="newsletter"]')
+
+	<!--匹配给定的属性是以某些值开始的元素-->
+	$('input[name^="n"]')
+
+	<!--匹配给定的属性是以某些值结尾的元素-->
+	$('input[name$="r"]')
+
+	<!--匹配给定的属性以包含某些值的元素-->
+	$('input[name*="a"]')
+
+	<!--需要满足多个条件时使用-->
+	$('input[id][name$="man"]')
+
+	<!--匹配第一个子元素-->
+	$('ul li:first-child')
+
+	<!--匹配所有的input,textarea,select和button元素-->
+	$(':input')
+
+	<!--匹配所有的单行文本框-->
+	$(':text')
+
+	<!--匹配所有复选框-->
+	$(':checkbox')
+
+	<!--匹配所有提交按钮-->
+	$(':submit')
+
+
+
+</script>
+</head>
+<body>
+	<div id="noteMe" >
+		<p>id = "notMe"</p>
+	</div>
+	<div id="myDiv" >Id = myDiv</div>
+
+	<span id="foo:bar" ></span>
+	<span id="foo[bar]"></span>
+	<span id="foo.bar" ></span>
+
+	<div>DIV1</div>
+	<div>DIV2</div>
+	<span>SPAN</span>
+
+	<div class="noteMe" >div class="noteMe" </div>
+	<div class="myClass" >div class="myClass" </div>
+	<span class="myClass" >span class="myClass" </span>
+
+	<div>DIV</div>
+	<span>SPAN</span>
+	<p>P</p>
+
+	<div>div</div>
+	<p class="myClass" >p class="myClass"</p>
+	<span>span</span>
+	<p class="noteMyClass" >p class="noteMyClass"</p>
+
+	<form>
+		<label>Name:</label>
+		<input name="name" >
+		<fieldset>
+			<label >Newletter</label>
+			<input name="Newletter">
+		</fieldset>
+	</form>
+	<input name="none">
+
+	<ul>
+		<li>list item1</li>
+		<li>list item2</li>
+		<li>list item3</li>
+		<li>list item4</li>
+		<li>list item5</li>
+	</ul>
+
+	<input name="apple" />
+	<input name="flower" checked="checked" />
+
+	<table>
+		<tr><td>Header 1</td></tr>
+		<tr><td>value 1</td></tr>
+		<tr><td>value 2</td></tr>	
+	</table>
+
+	<h1>Header 1</h1>
+	<p>Contents 1</p>
+	<h2>Header 2</h2>
+	<p>Contents 2</p>
+
+	<button id="run" >Run</button><div></div>
+
+	<div>John Resig</div>
+	<div>George Martin</div>
+	<div>Malcom John Sinclair</div>
+	<div>J.Ohn</div>
+
+	<table>
+		<tr style="display:none"><td>Value 1</td><td></td></tr>
+		<tr><td>Value 2</td><td></td></tr>
+	</table>
+
+	<input type="checkbox" name="newsletter" value="Hot Fuzz" />
+	<input type="checkbox" name="newsletter" value="Cold Fusion" />
+	<input type="checkbox" name="accept" value="Evil Plans" />
+
+	<input id="man-news" name="man-news" />
+	<input name="milkman" />
+	<input id="letterman" name="new-letterman" />
+	<input name="newmilk" />
+
+</body>
+</html>

@@ -1,0 +1,104 @@
+<html xmlns="http://www.w3.org/1999/xhtml" charset=UTF-8> 
+<head runat="server"> 
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title></title> 
+<style type="text/css">
+    
+</style> 
+<script type="text/javascript" src="jquery.js" ></script>
+<script>
+
+    
+
+   <!--当DOM载入就绪可以查询及操纵时绑定一个要执行的函数-->
+
+  /* $(document).ready(function(){
+        alert("DOM已经准备就绪！");
+   });*/
+   $(function($){
+        
+        alert("DOM已经准备就绪！");
+        var p = $("p");
+        var input = $("input");
+        var form = $("form");
+        var span = $("span");
+
+        /*<!--为每个匹配的元素的特定事件，绑定一个一次性的函数-->
+
+        p.one("click",function(){
+             alert($(this).text());
+        });
+
+        <!--当textarea或者文本类型的input元素中的文本被选择的时候会发生select事件-->
+
+        input.select(function(){
+            $(this).css("color","red");
+        });
+
+        <!--当提交表单的时候，会发生submit 事件-->
+
+        form.submit(function(){
+            return false;
+        });
+
+        <!--调整窗口大小的时候会发生resize事件-->
+
+        $(window).resize(function(){
+            span.text(x+=1);
+        });
+
+        <!--在每个匹配的元素上触发某类事件-->
+
+        form.trigger("submit");
+
+        <!--给一个事件传递参数-->
+
+        p.click(function(event,a,b){
+
+        }).trigger("click",["foo","bar"]);
+*/
+        <!---->
+
+        p.bind("myEvent",function(event,message1,message2){
+            alert(message1+''+message2);
+        });
+
+        p.trigger("myEvent",["Hello","World!"]);
+
+        <!--当键盘或按钮被按下，发生keydown事件-->
+
+        $(window).keydown(function(event){
+            switch(event.keyCode) {
+                case 32 : alert("空格"); 
+                            break;
+                case 13 : alert("Enter");
+                            break;
+                case 27 : alert("ESC");
+                            break;
+                default : alert("没有按到关键键");
+
+            }
+        });
+
+   });
+
+
+</script>
+	
+
+</head> 
+<body> 
+
+<p>vfvfvfvf</p>
+<form action="#">
+    <input type="text" value="ok">
+    <input type="submit" value="提交">
+</form>
+
+<span>dsvdsv</span>
+
+
+
+
+</body> 
+</html> 
