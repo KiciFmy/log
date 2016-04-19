@@ -1,0 +1,78 @@
+<html xmlns="http://www.w3.org/1999/xhtml" charset=UTF-8> 
+<head runat="server"> 
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title></title> 
+
+<script type="text/javascript" src="jquery.js" ></script>
+<script>
+
+  window.onload = function(){
+
+      <!-- For...in声明对数组或者对象的属性进行迭代操作 -->
+
+      <!--对于数组，迭代出来的是数组元素-->
+
+      var x;
+      var mycars = new Array();
+      mycars[0] = "Saab";
+      mycars[1] = "Volvo";
+      mycars[2] = "BNM";
+
+      for(x in mycars)
+      {
+        document.write(mycars[x]+"<br />");
+      }
+
+      <!--对于对象迭代出来的是对象属性-->
+
+      var obj = {
+          w:"wen",
+          j:"jian",
+          b:"bao"
+      }
+ 
+      for(var v in obj) {
+          document.write(v+"<br />");
+      }
+
+
+      <!--模拟copy联系人-->
+
+     function copy {
+          var olds = $("div.old input");
+          var news = $("div.new input");
+
+          var obj = {};
+
+          olds.each(function(i,n){
+              obj[n.name] = $.trim(n.value);
+          });
+          news.each(function(i,n){
+              if(n.name in obj) {
+                  n.value = obj[n.name];
+              }
+          });
+     }
+
+     copy();
+
+  }
+</script>
+	
+
+</head> 
+<body> 
+
+<div name="old">
+    <input name="first-name" type="text">
+    <input name="last-name" type="text">
+    <input name="phone" type="text">
+</div>
+<div name="new">
+    <input name="first-name" type="text">
+    <input name="last-name" type="text">
+    <input name="phone" type="text">
+</div>
+
+</body> 
+</html> 

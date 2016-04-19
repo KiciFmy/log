@@ -18,6 +18,7 @@
 		}
 		#div1 ul{
 			position: absolute;
+            /*margin-left: 100px;*/
 			left: 0;
 			top:0;
 		}
@@ -30,37 +31,34 @@
 	<script>
 	window.onload=function()
 	{
-		var oDiv=document.getElementById('div1');
-		var oUl=oDiv.getElementsByTagName('ul')[0];
-		var aLi=oUl.getElementsByTagName('li');
-		var timer=null;
+		var oDiv = document.getElementById('div1');
+		var oUl = oDiv.getElementsByTagName('ul')[0];
+		var aLi = oUl.getElementsByTagName('li');
+		var timer = null;
 
-		oUl.innerHTML=oUl.innerHTML+oUl.innerHTML;  
+		oUl.innerHTML = oUl.innerHTML+oUl.innerHTML;  
 
-		oUl.style.width=aLi.length*aLi[0].offsetWidth+'px';
+		oUl.style.width = aLi.length*aLi[0].offsetWidth+'px';
 
 		function move(){
-			
-			if(oUl.offsetLeft<-oUl.offsetWidth/2)
-			{
-				oUl.style.left='0';
+            // console.log(oUl.style.left,oUl.offsetLeft);
+
+			if(oUl.offsetLeft < -oUl.offsetWidth / 2){
+				oUl.style.left = '0';
 			}
-			oUl.style.left=oUl.offsetLeft-2+'px';
 
-
+			oUl.style.left = oUl.offsetLeft  - 2 + 'px';
 		}
 
-		timer=setInterval(move,30);
+		timer = setInterval(move,30);
 
-		oUl.onmouseover=function()
-		{
+		oUl.onmouseover = function(){
 			clearInterval(timer);
 		}
-		oUl.onmouseout=function()
-		{
-			timer=setInterval(move,30);
-		}
 
+		oUl.onmouseout = function(){
+			timer = setInterval(move,30);
+		}
 
 	}
 	</script>
